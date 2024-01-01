@@ -22,6 +22,12 @@ services:
       - pictrs
       - lemmy-ui
     logging: *default-logging
+    labels:
+      - "traefik.http.routers.modules.rule=${JATAYUDOMAIN}"
+      - "traefik.http.services.modules.loadbalancer.server.port=8536"
+      - "traefik.http.routers.modules.tls.certResolver=myresolver"
+
+
 
   lemmy:
     # use "image" to pull down an already compiled lemmy. make sure to comment out "build".
