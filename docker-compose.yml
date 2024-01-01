@@ -23,7 +23,7 @@ services:
       - lemmy-ui
     logging: *default-logging
     labels:
-      - "traefik.http.routers.modules.rule=${JATAYUDOMAIN}"
+      - "traefik.http.routers.modules.rule=Host(`${JATAYUDOMAIN}`)"
       - "traefik.http.services.modules.loadbalancer.server.port=8536"
       - "traefik.http.routers.modules.tls.certResolver=myresolver"
 
